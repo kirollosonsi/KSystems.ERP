@@ -1,0 +1,7 @@
+﻿
+
+    @model Nullable<bool>
+
+    @{
+        @Html.CheckBox("",Model?? false,new { @class="form-control" , disabled="disabled"})
+    }

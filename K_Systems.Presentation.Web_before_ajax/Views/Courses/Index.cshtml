@@ -1,0 +1,103 @@
+﻿@using K_Systems.Presentation.Web.Models.ViewModel
+@using K_Systems.Data.Core.Domain
+
+@model CourseHomeViewModel
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_LayoutHR.cshtml";
+    }
+
+    <h2>Courses Data:</h2>
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">Filter Data</div>
+            <div class="panel-body">
+                <div class="col-lg-3 mg-t-s">
+                    <label for="search">Search by name:</label>
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" id="btnSearch">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <input type="text" class="form-control"
+                               name="search" id="search"
+                               value="@Model.search"
+                               placeholder="Employee name ...">
+                    </div>
+                </div>
+                <div class="col-lg-3 mg-t-s">
+                    <label for="items">Item per page:</label>
+                    @Html.DropDownList("items", Model.pageItems, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main">
+        @Html.Partial("_CoursesTable", Model)
+    </div>
+
+
+    <div class="col-xs-12" id="actions">
+        <div class="panel panel-default">
+            <div class="panel-heading">Actions:</div>
+            <div class="panel-body">
+                <div class="btn-group" role="group">
+                    <button class="btn btn-primary" data-url="@Url.Action("Edit")" id="update" title="Tooltip on left">Update</button>
+                    <button class="btn btn-default" data-url="@Url.Action("Detail")" id="detail">Detail</button>
+                    <button class="btn btn-danger" data-url="@Url.Action("Delete")" id="delete">Delete</button>
+                </div>
+                @Html.ActionLink("Add new course","Add",null,
+                                 new { @class= "btn btn-primary pull-right"})
+            </div>
+        </div>
+    </div>
+
+
+
+    @*//context menu*@
+    <div class="well" id="contextmenu">
+        <div class="list-group">
+            <button type="button" class="list-group-item">Details</button>
+            <button type="button" class="list-group-item">Update</button>
+            <button type="button" class="list-group-item">Delete</button>
+        </div>
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade " id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Are you sure you want to delete the following course</h4>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" id="confDelete" class="btn btn-danger">Delete Course</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Generated markup by the plugin -->
+    <div class="tooltip top" id="selectError" role="tooltip">
+        <div class="tooltip-arrow"></div>
+        <div class="tooltip-inner">
+            Some tooltip text!
+        </div>
+    </div>
+
+
+    @section Scripts{
+        <script src="~/Scripts/CoursesScripts.js"></script>
+    }

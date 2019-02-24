@@ -1,0 +1,160 @@
+﻿@using K_Systems.Data.Core.Domain
+@using System.Web.Http.Routing
+
+@model TrainingHistory
+
+@{
+    ViewBag.Title = "Add New Training History";
+    Layout = "~/Views/Shared/_LayoutHR.cshtml";
+}
+
+
+@using (Ajax.BeginForm("AddAjax", "TrainingHistories", new AjaxOptions
+{
+    HttpMethod = "post",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "addingResult",
+    OnSuccess = "OnAjaxSuccess"
+}, new { novalidate = "novalidate" }))
+{
+    @Html.AntiForgeryToken()
+
+    <h2>Add New Training History</h2>
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Required Data</div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="form-group col-lg-4">
+                    @Html.LabelFor(model => model.trainingDate, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.trainingDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.trainingDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group col-lg-4">
+                    @Html.LabelFor(model => model.employeeID, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextBox("empName", null, new { data_auto = Url.Action("EmployeeAuto"), data_target = nameof(Model.employeeID), @class = "form-control" })
+                        @Html.EditorFor(model => model.employeeID, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @type = "hidden" } })
+                        <span id="empID"></span>
+                        @Html.ValidationMessageFor(model => model.employeeID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group col-lg-4">
+                    @Html.LabelFor(model => model.Course.name, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextBox("courseName", null, new { data_auto = Url.Action("CourseAuto"), data_target = nameof(Model.courseID), @class = "form-control" })
+                        @Html.EditorFor(model => model.courseID, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @type = "hidden" } })
+                        @Html.ValidationMessageFor(model => model.courseID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="form-group col-lg-4">
+                    @Html.LabelFor(model => model.result, htmlAttributes: new { @class = "control-label col-md-3" })
+                    <div class="col-md-9">
+                        @Html.EditorFor(model => model.result, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.result, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-4">
+            <div class="col-md-offset-2 col-md-9">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+        <div class="col-lg-1">
+            @Html.ActionLink("Back to List", "Index")
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-lg-4 col-lg-offset-1">
+            <div class="btn-group" role="group">
+                <input type="submit" value="Add more than one" class="btn btn-success" />
+                <input type="submit" value="Add & Back To List" data-url='@Url.Action("Add", "TrainingHistories")' class="btn btn-primary" />
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-12 well" id="addingResult">
+
+    </div>
+}
+
+
+<div class="row">
+    <div class="col-lg-3">
+        <div class="img-bucket">
+            <div class="item-discounts">
+
+                <span class="discount">19 % off</span>
+            </div>
+            <a id="quickview-38208249" class="img-link quickViewAction sPrimaryLink" href="https://egypt.souq.com/eg-en/kingston-32gb-microsd-card-class10-with-sd-adaptor-38208249/i/" data-id="38208249" data-is_unit="false">
+                <img class="img-size-medium" src="https://cf2.s3.souqcdn.com/item/2018/09/06/38/20/82/49/item_L_38208249_148342578.jpg" onerror="this.onerror=null;this.src='https://cf1.s3.souqcdn.com/public/style/img/placeholder_medium.png'">
+                <div class="overlay">
+                    <button type="button" class="button tiny sk-bg-clr1 sk-bg-clr1-eff">
+                        Quick View
+                    </button>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/UIEditors1.js"></script>
+    <script>
+        var OnAjaxSuccess = function () {
+            $('input')
+                .not('[type=submit]')
+                .not('[name=__RequestVerificationToken]')
+                .val("");
+        }
+    </script>
+}
+
+@section Styles{
+    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <style>
+        .img-bucket {
+            position: relative;
+            padding: 0;
+            max-height: 235px;
+            line-height: 235px;
+            height: auto;
+        }
+
+        .item-discounts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: initial;
+            z-index: 9;
+        }
+        .img-bucket  img {
+            max-height: 200px;
+            padding: 10px;
+        }
+    </style>
+
+}

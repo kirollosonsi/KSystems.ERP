@@ -1,0 +1,45 @@
+﻿@model K_Systems.Presentation.Web.Models.ViewModel.RegisterViewModel
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-lg-11 col-lg-offset-1">
+        <h2>Manage Your account</h2>
+        <hr />
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            @Html.LabelFor(l => l.UserName, new { @class = "label-control" })
+            @Html.EditorFor(e => e.UserName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.UserName, null, new { @class = "text-danger" })
+            <br />
+
+            @Html.LabelFor(l => l.Email, new { @class = "label-control" })
+            @Html.EditorFor(e => e.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger" })
+            <br />
+
+            @*@Html.LabelFor(l => l.Password, new { @class = "label-control" })
+            @Html.EditorFor(e => e.Password, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Password, null, new { @class = "text-danger" })
+            <br />*@
+
+            <input type="submit" name="name" value="Login" class="btn btn-primary" />
+        }
+    </div>
+
+</div>
+
+
+@section Scripts{
+
+    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}

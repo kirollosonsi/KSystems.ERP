@@ -1,0 +1,117 @@
+﻿@using K_Systems.Presentation.Web.Models.ViewModel
+@using K_Systems.Presentation.Web.Helper
+@using K_Systems.Data.Core.Domain
+
+@model EmployeeHomeViewModel
+
+<input type="hidden" name="order" id="inputOrder" value='@(Model.pageInfo.order )' />
+<input type="hidden" name="sortBy" id="inputSortBy" value='@(Model.pageInfo.sortBy )' />
+
+<table class="table table-hover table-striped text-center mg-t-s" data-selected="false" id="dataTable">
+    <thead>
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(emps => emps.employee.ID)
+                @Html.Partial("_TableHead", Model,new ViewDataDictionary { { "colName", nameof(Model.employee.ID)} })
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(emps => emps.employee.fName)
+                @Html.Partial("_TableHead", Model, new ViewDataDictionary { { "colName", nameof(Model.employee.fName) } })
+            </th>
+            <th class="text-center" data-sortBy="lName">
+                @Html.DisplayNameFor(emps => emps.employee.lName)
+                @Html.Partial("_TableHead", Model, new ViewDataDictionary { { "colName", nameof(Model.employee.lName) } })
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(emps => emps.employee.phone)
+                @Html.Partial("_TableHead", Model, new ViewDataDictionary { { "colName", nameof(Model.employee.phone) } })
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(emps => emps.employee.email)
+                @Html.Partial("_TableHead", Model, new ViewDataDictionary { { "colName", nameof(Model.employee.email) } })
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (Employee employee in Model.employees)
+        {
+            <tr data-id="@employee.ID">
+                <td>@Html.DisplayFor(e => employee.ID)</td>
+                <td>@Html.DisplayFor(e => employee.fName)</td>
+                <td>@Html.DisplayFor(e => employee.lName)</td>
+                <td>@Html.DisplayFor(e => employee.phone)</td>
+                <td>@Html.DisplayFor(e => employee.email)</td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+
+<div class="col-lg-8 col-lg-offset-4" id="pagingRemovable">
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+
+            <li class="@((((int)Model.pageInfo.page) - 1) <= 0 ? "disable": "")">
+                @Ajax.BodiedActionLink("<span aria-hidden='true'>&laquo;</span>", "Search","Employees",
+                       new TablePageInfo{
+                           search = Model.pageInfo.search,
+                           items = Model.pageInfo.items,
+                           sortBy = Model.pageInfo.sortBy,
+                           order = Model.pageInfo.order,
+                           page = (((int)Model.pageInfo.page.Value) - 1)
+                       },
+                       new AjaxOptions
+                       {
+                           HttpMethod = "get",
+                           InsertionMode = InsertionMode.Replace,
+                           UpdateTargetId = "main"
+                       },new { aria_label = "Previous" })
+            </li>
+
+            @for (int i = 0; i < (int)Model.totalPages; i++)
+            {
+                <li class="@((int)Model.pageInfo.page == (i+1)? "active": "")">
+
+                    @Ajax.ActionLink((i+1).ToString(), "Search",
+                      new {
+                          search = Model.pageInfo.search,
+                          items = Model.pageInfo.items,
+                          sortBy = Model.pageInfo.sortBy,
+                          order = Model.pageInfo.order,
+                          page = (i + 1).ToString()
+                      },
+                       new AjaxOptions
+                       {
+                           HttpMethod = "get",
+                           InsertionMode = InsertionMode.Replace,
+                           UpdateTargetId = "main"
+                       })
+                </li>
+            }
+
+            <li class="@((((int)Model.pageInfo.page) + 1) > (int)Model.totalPages ? "disable": "")">
+                @Ajax.BodiedActionLink("<span aria-hidden='true'>&raquo;</span>", "Search","Employees",
+                       new TablePageInfo
+                       {
+                           search = Model.pageInfo.search,
+                           items = Model.pageInfo.items,
+                           sortBy = Model.pageInfo.sortBy,
+                           order = Model.pageInfo.order,
+                           page = (((int)Model.pageInfo.page) + 1)
+                       },
+                       new AjaxOptions
+                       {
+                           HttpMethod = "get",
+                           InsertionMode = InsertionMode.Replace,
+                           UpdateTargetId = "main"
+                       },new { aria_label = "Next" })
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+
+

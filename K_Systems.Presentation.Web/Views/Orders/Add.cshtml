@@ -1,0 +1,118 @@
+﻿@model K_Systems.Presentation.Web.Models.ViewModel.OrderDetailViewModel
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_LayoutSales.cshtml";
+}
+
+<h2>Add</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">Employee &amp; Customer</div>
+    <div class="panel-body">
+        <div class="row">
+
+            <div class="form-group col-lg-4">
+                @Html.Label("Employee", new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.TextBox("Employee", null, new { @id = "Employee", @class = "form-control form-group", data_auto = Url.Action("EmployeesAuto", "Orders"), data_target = "employeeId" })
+                </div>
+            </div>
+
+            <div class="form-group col-lg-4">
+                @Html.Label("Customer", new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.TextBox("Customer", null, new { @id = "Customer", @class = "form-control form-group", data_auto = Url.Action("CustomersAuto", "Orders"), data_target = "CustomerId" })
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Add new item</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="form-group col-lg-3">
+                @Html.Label("Product", new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.TextBox("product", null, new { @id = "product", @class = "form-control form-group", data_auto = Url.Action("ProductsAuto", "Orders"), data_productID = "", data_price = "Price" })
+                </div>
+            </div>
+
+            <div class="form-group col-lg-3">
+                @Html.Label("Price", new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.TextBox("Price", null, new { @id = "Price", @class = "form-control form-group", @readonly = "readonly" })
+                </div>
+            </div>
+
+            <div class="form-group col-lg-3">
+                @Html.Label("Units", new { @class = "control-label col-md-3" })
+                <div class="col-md-9">
+                    @Html.TextBox("Units", null, new { @id = "Units", @class = "form-control form-group",
+                   @type = "Number" })
+                </div>
+            </div>
+
+            <div class="form-group col-lg-3">
+                <button class="btn btn-primary" id="Add">
+                    <span class="glyphicon glyphicon-plus"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Added Items</div>
+    <div class="panel-body">
+        <table class="table table-striped table-hover table-responsive">
+            <thead>
+                <tr class="text-center">
+                    <th class="text-center">Product</th>
+                    <th class="text-center">Price</th>
+                    <th class="text-center">Units</th>
+                    <th class="text-center">Total</th>
+                    <th class="text-center">Remove</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+</div>
+
+<div class="col-lg-2 col-lg-offset-10">
+    <button class="btn btn-success" id="submit">Submit</button>
+</div>
+
+
+<table id="template" style="display:none">
+    <tr data-productID="" data-price="" data-units="" class="text-center">
+        <td class="product"></td>
+        <td class="price"></td>
+        <td class="units"></td>
+        <td class="total"></td>
+        <td>
+            <button class="btn btn-danger remove">
+                <span class="glyphicon glyphicon-minus"></span>
+            </button>
+        </td>
+    </tr>
+</table>
+
+@section Scripts{
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/alertify.min.js"></script>
+    <script src="~/Scripts/UIEditors.js"></script>
+    <script src="~/Scripts/OrderDetail.js"></script>
+}
+
+
+@section Styles{
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    <link href="~/Content/alertifyjs/alertify.min.css" rel="stylesheet" />
+}

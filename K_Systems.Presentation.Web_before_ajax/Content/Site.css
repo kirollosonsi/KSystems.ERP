@@ -1,0 +1,70 @@
+﻿body {
+    font-size: 16px;
+}
+
+.well {
+    background-color: rgb(248,248,248);
+    padding: 12px 6px 12px 6px;
+}
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.btn-flex {
+    display: flex;
+    align-items: stretch;
+    align-content: stretch;
+}
+
+    .btn-flex .btn:first-child {
+        flex-grow: 1;
+        text-align: left;
+    }
+
+.mg-t-s {
+    margin-top: 7px;
+}
+
+.navbar {
+    margin-bottom: -1px;
+}
+
+.container-fluid {
+    padding-left: 0px;
+}
+
+.disable {
+    visibility: hidden;
+}
+
+.selected {
+    outline: 1px solid navy;
+}
+
+
+#contextmenu {
+    display: none;
+    position: absolute;
+    max-width: 100px;
+}
+
+.thumbnail img.addImg {
+    display: none;
+}
+tr th span{
+    cursor:pointer;
+}
+
+.text-muted{
+    color:aqua;
+}
+
+thead {
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}

@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FB1DB4D0-5E60-4017-88E1-6431018CAAC8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>K_Systems.Data</RootNamespace>
+    <AssemblyName>K_Systems.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\Domain\Category.cs" />
+    <Compile Include="Core\Domain\City.cs" />
+    <Compile Include="Core\Domain\Customer.cs" />
+    <Compile Include="Core\Domain\Order.cs" />
+    <Compile Include="Core\Domain\OrderDetail.cs" />
+    <Compile Include="Core\Domain\Product.cs" />
+    <Compile Include="Core\Domain\Supplier.cs" />
+    <Compile Include="Core\Domain\TablePageInfo.cs" />
+    <Compile Include="Core\Domain\UserERP.cs" />
+    <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Core\Domain\Country.cs" />
+    <Compile Include="Core\Domain\Course.cs" />
+    <Compile Include="Core\Domain\Department.cs" />
+    <Compile Include="Core\Domain\Employee.cs" />
+    <Compile Include="Core\Domain\EmployeeJobAssignment.cs" />
+    <Compile Include="Core\Domain\EmployeeSkill.cs" />
+    <Compile Include="Core\Domain\EmployeeVacation.cs" />
+    <Compile Include="Core\Repositories\ICategoryRepository.cs" />
+    <Compile Include="Core\Repositories\ICityRepository.cs" />
+    <Compile Include="Core\Repositories\ICountryRepository.cs" />
+    <Compile Include="Core\Repositories\ICourseRepository.cs" />
+    <Compile Include="Core\Repositories\ICustomerRepository.cs" />
+    <Compile Include="Core\Repositories\IDepartmentRepository.cs" />
+    <Compile Include="Core\Repositories\IEmployeeJobAssignmentRepository.cs" />
+    <Compile Include="Core\Repositories\IEmployeeRepository.cs" />
+    <Compile Include="Core\Repositories\IEmployeeSkillsRepository.cs" />
+    <Compile Include="Core\Repositories\IEmployeeVacationRepository.cs" />
+    <Compile Include="Core\Repositories\IJobRepository.cs" />
+    <Compile Include="Core\Repositories\IOrderRepository.cs" />
+    <Compile Include="Core\Repositories\IOrderDetailRepository.cs" />
+    <Compile Include="Core\Repositories\IperformanceReviewRepository.cs" />
+    <Compile Include="Core\Repositories\IProductRepository.cs" />
+    <Compile Include="Core\Repositories\IRepository.cs" />
+    <Compile Include="Core\Repositories\ISkillLevelRepository.cs" />
+    <Compile Include="Core\Repositories\ISkillRepository.cs" />
+    <Compile Include="Core\Repositories\ISupplierRepository.cs" />
+    <Compile Include="Core\Repositories\ITrainingHistoryRepository.cs" />
+    <Compile Include="Migrations\201901222224531_InitialMigration.cs" />
+    <Compile Include="Migrations\201901222224531_InitialMigration.Designer.cs">
+      <DependentUpon>201901222224531_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901222238257_InitialMigrationFullInit.cs" />
+    <Compile Include="Migrations\201901222238257_InitialMigrationFullInit.Designer.cs">
+      <DependentUpon>201901222238257_InitialMigrationFullInit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901311043598_AddEnumsToEmployee.cs" />
+    <Compile Include="Migrations\201901311043598_AddEnumsToEmployee.Designer.cs">
+      <DependentUpon>201901311043598_AddEnumsToEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901311433562_chaneenumnames.cs" />
+    <Compile Include="Migrations\201901311433562_chaneenumnames.Designer.cs">
+      <DependentUpon>201901311433562_chaneenumnames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901311835005_DeleteSupervisorFromEmployee.cs" />
+    <Compile Include="Migrations\201901311835005_DeleteSupervisorFromEmployee.Designer.cs">
+      <DependentUpon>201901311835005_DeleteSupervisorFromEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902091025439_removedatefromPK.cs" />
+    <Compile Include="Migrations\201902091025439_removedatefromPK.Designer.cs">
+      <DependentUpon>201902091025439_removedatefromPK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902100750211_prodCatSupp.cs" />
+    <Compile Include="Migrations\201902100750211_prodCatSupp.Designer.cs">
+      <DependentUpon>201902100750211_prodCatSupp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902100851565_orderderdetailorder.cs" />
+    <Compile Include="Migrations\201902100851565_orderderdetailorder.Designer.cs">
+      <DependentUpon>201902100851565_orderderdetailorder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902151625471_identity.cs" />
+    <Compile Include="Migrations\201902151625471_identity.Designer.cs">
+      <DependentUpon>201902151625471_identity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Persistance\Configuration\CourseConfiguration.cs" />
+    <Compile Include="Persistance\Configuration\DepartmentConfiguration.cs" />
+    <Compile Include="Persistance\Configuration\EmployeeConfiguration.cs" />
+    <Compile Include="Persistance\Configuration\SkillConfiguartion.cs" />
+    <Compile Include="Persistance\Configuration\SkillLevelConfiguration.cs" />
+    <Compile Include="Persistance\ERPModel.cs" />
+    <Compile Include="Core\Domain\Job.cs" />
+    <Compile Include="Core\Domain\PerformanceReview.cs" />
+    <Compile Include="Persistance\Repositories\CategoryRepository.cs" />
+    <Compile Include="Persistance\Repositories\CityRepository.cs" />
+    <Compile Include="Persistance\Repositories\CountryRepository.cs" />
+    <Compile Include="Persistance\Repositories\CourseRepository.cs" />
+    <Compile Include="Persistance\Repositories\CustomerRepository.cs" />
+    <Compile Include="Persistance\Repositories\DepartmentRepository.cs" />
+    <Compile Include="Persistance\Repositories\EmployeeJobAssignmaneRepository.cs" />
+    <Compile Include="Persistance\Repositories\EmployeeRepository.cs" />
+    <Compile Include="Persistance\Repositories\EmployeeSkillRepository.cs" />
+    <Compile Include="Persistance\Repositories\EmployeeVacationRepository.cs" />
+    <Compile Include="Persistance\Repositories\JobRepository.cs" />
+    <Compile Include="Persistance\Repositories\OrderDetailRepository.cs" />
+    <Compile Include="Persistance\Repositories\OrderRepository.cs" />
+    <Compile Include="Persistance\Repositories\PerformanceReviewRepository.cs" />
+    <Compile Include="Persistance\Repositories\ProductRepository.cs" />
+    <Compile Include="Persistance\Repositories\Repository.cs" />
+    <Compile Include="Persistance\Repositories\SkillLevelRepository.cs" />
+    <Compile Include="Persistance\Repositories\SkillRepository.cs" />
+    <Compile Include="Persistance\Repositories\SupplierRepository.cs" />
+    <Compile Include="Persistance\Repositories\TrainingHistoryRepository.cs" />
+    <Compile Include="Persistance\UnitOfWork.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Core\Domain\Skill.cs" />
+    <Compile Include="Core\Domain\SkillLevel.cs" />
+    <Compile Include="Core\Domain\TrainingHistory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Persistance\EntityConfigurations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201901222224531_InitialMigration.resx">
+      <DependentUpon>201901222224531_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901222238257_InitialMigrationFullInit.resx">
+      <DependentUpon>201901222238257_InitialMigrationFullInit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901311043598_AddEnumsToEmployee.resx">
+      <DependentUpon>201901311043598_AddEnumsToEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901311433562_chaneenumnames.resx">
+      <DependentUpon>201901311433562_chaneenumnames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901311835005_DeleteSupervisorFromEmployee.resx">
+      <DependentUpon>201901311835005_DeleteSupervisorFromEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902091025439_removedatefromPK.resx">
+      <DependentUpon>201902091025439_removedatefromPK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902100750211_prodCatSupp.resx">
+      <DependentUpon>201902100750211_prodCatSupp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902100851565_orderderdetailorder.resx">
+      <DependentUpon>201902100851565_orderderdetailorder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902151625471_identity.resx">
+      <DependentUpon>201902151625471_identity.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
