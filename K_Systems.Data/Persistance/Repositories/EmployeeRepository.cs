@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Linq.Expressions;
 using System.ComponentModel;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace K_Systems.Data.Persistance.Repositories
 {
@@ -32,6 +33,7 @@ namespace K_Systems.Data.Persistance.Repositories
 
         public IEnumerable<Employee> GetByName(TablePageInfo pageInfo, out int totalPages)
         {
+            var x = 10;
             var context = Ctx as ERPModel;
             string search = !string.IsNullOrEmpty(pageInfo.search) ?
                 pageInfo.search.ToLower() : string.Empty;
