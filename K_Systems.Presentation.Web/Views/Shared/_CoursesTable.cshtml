@@ -13,7 +13,7 @@
                 @Html.DisplayNameFor(emps => emps.course.ID)
 
                 @Ajax.BodiedActionLink("<span class='glyphicon glyphicon-sort-by-attributes'></span>", "Search","Courses",
-                       new {
+                       new TablePageInfo {
                            search = Model.search,
                            items = Model.items,
                            sortBy = nameof(Model.course.ID),
@@ -27,7 +27,7 @@
                        },new { @class= Model.sortBy == nameof(Model.course.ID) && Model.order == "asc" ? "" : "text-muted" })
 
                 @Ajax.BodiedActionLink("<span class='glyphicon glyphicon-sort-by-attributes'></span>", "Search", "Courses",
-                      new {
+                      new TablePageInfo{
                           search = Model.search,
                           items = Model.items,
                           sortBy = nameof(Model.course.ID),
@@ -44,7 +44,8 @@
                 @Html.DisplayNameFor(emps => emps.course.name)
 
                 @Ajax.BodiedActionLink("<span class='glyphicon glyphicon-sort-by-attributes'></span>", "Search","Courses",
-                       new {
+                       new TablePageInfo
+                       {
                            search = Model.search,
                            items = Model.items,
                            sortBy = nameof(Model.course.name),
@@ -58,7 +59,8 @@
                        },new { @class= Model.sortBy == nameof(Model.course.name) && Model.order == "asc" ? "" : "text-muted" })
 
                 @Ajax.BodiedActionLink("<span class='glyphicon glyphicon-sort-by-attributes'></span>", "Search", "Courses",
-                      new {
+                      new TablePageInfo
+                      {
                           search = Model.search,
                           items = Model.items,
                           sortBy = nameof(Model.course.name),
@@ -74,7 +76,8 @@
             <th class="text-center">
 
                 @Ajax.BodiedActionLink("<span class='glyphicon glyphicon-sort-by-attributes'></span>", "Search","Courses",
-                       new {
+                       new TablePageInfo
+                       {
                            search = Model.search,
                            items = Model.items,
                            sortBy = nameof(Model.course.description),
@@ -88,7 +91,8 @@
                        },new { @class= Model.sortBy == nameof(Model.course.description) && Model.order == "asc" ? "" : "text-muted" })
 
                 @Ajax.BodiedActionLink("<span class='glyphicon glyphicon-sort-by-attributes'></span>", "Search", "Courses",
-                      new {
+                      new TablePageInfo
+                      {
                           search = Model.search,
                           items = Model.items,
                           sortBy = nameof(Model.course.description),
@@ -124,12 +128,12 @@
 
             <li class="@((((int)Model.page) - 1) <= 0 ? "disable": "")">
                 @Ajax.BodiedActionLink("<span aria-hidden='true'>&laquo;</span>", "Search","Courses",
-                   new{
+                   new TablePageInfo{
                        search = Model.search,
                        items = Model.items,
                        sortBy = Model.sortBy,
                        order = Model.order,
-                       page = (((int)Model.page) - 1).ToString()
+                       page = (((int)Model.page) - 1)
                    },
                    new AjaxOptions
                    {
@@ -161,12 +165,13 @@
 
             <li class="@((((int)Model.page) + 1) > (int)Model.totalPages ? "disable": "")">
                 @Ajax.BodiedActionLink("<span aria-hidden='true'>&raquo;</span>", "Search","Courses",
-                      new{
+                      new TablePageInfo
+                      {
                           search = Model.search,
                           items = Model.items,
                           sortBy = Model.sortBy,
                           order = Model.order,
-                          page = (((int)Model.page) + 1).ToString()
+                          page = (((int)Model.page) + 1)
                       },
                       new AjaxOptions
                       {

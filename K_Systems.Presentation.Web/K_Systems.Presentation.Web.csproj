@@ -293,6 +293,7 @@
     <Compile Include="Helper\FileManipulation.cs" />
     <Compile Include="Helper\UserManagerExten.cs" />
     <Compile Include="Models\ViewModel\CourseHomeViewModel.cs" />
+    <Compile Include="Models\ViewModel\OrderHomeViewModel.cs" />
     <Compile Include="Models\ViewModel\LoginViewModel.cs" />
     <Compile Include="Models\ViewModel\RegisterViewModel.cs" />
     <Compile Include="Models\ViewModel\Order.cs" />

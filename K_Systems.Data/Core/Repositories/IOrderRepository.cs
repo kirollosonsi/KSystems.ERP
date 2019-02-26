@@ -10,5 +10,6 @@ namespace K_Systems.Data.Core.Repositories
 {
     public interface IOrderRepository:IRepository<Order>
     {
+        IEnumerable<Order> FullSearch(TablePageInfo pageInfo, out int totalPages);
     }
 }

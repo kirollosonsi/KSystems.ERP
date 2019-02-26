@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using K_Systems.Data.Persistance;
 using K_Systems.Data.Core.Domain;
-//using K_Systems.Data.Core.Repositories;
+using K_Systems.Data.Core.Repositories;
 using K_Systems.Data.Core;
 using K_Systems.Presentation.Web.Models.ViewModel;
 
@@ -20,10 +20,28 @@ namespace K_Systems.Presentation.Web.Controllers
             _uow = new UnitOfWork(new ERPModel());
         }
 
-        // GET: Orders
-        public ActionResult Index()
+        // GET: Employees
+        public ActionResult Index(TablePageInfo pageInfo)
         {
-            return View();
+            IEnumerable<Order> orders = _uow.Orders.FullSearch(pageInfo, out int totalPages);
+            return View(new OrderHomeViewModel()
+            {
+                orders = orders,
+                pageInfo = pageInfo,
+                totalPages = totalPages
+            });
+        }
+
+        public PartialViewResult Search(TablePageInfo pageInfo)
+        {
+            IEnumerable<Order> orders = _uow.Orders.FullSearch(pageInfo, out int totalPages);
+
+            return PartialView("_OrderTable", new OrderHomeViewModel()
+            {
+                orders = orders,
+                pageInfo = pageInfo,
+                totalPages = totalPages
+            });
         }
 
         public ActionResult Add()

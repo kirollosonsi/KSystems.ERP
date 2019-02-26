@@ -5,7 +5,7 @@ using System.Web;
 
 namespace K_Systems.Presentation.Web.Models.ViewModel
 {
-    public enum Order
+    public enum TableOrder
     {
         Asc,
         Dsc

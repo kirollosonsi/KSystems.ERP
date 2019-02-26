@@ -33,7 +33,6 @@ namespace K_Systems.Data.Persistance.Repositories
 
         public IEnumerable<Employee> GetByName(TablePageInfo pageInfo, out int totalPages)
         {
-            var x = 10;
             var context = Ctx as ERPModel;
             string search = !string.IsNullOrEmpty(pageInfo.search) ?
                 pageInfo.search.ToLower() : string.Empty;
@@ -169,7 +168,7 @@ namespace K_Systems.Data.Persistance.Repositories
                 new SqlParameter("@page",pageInfo.page),
                 outParam
             };
-            List<Employee> employees = context.Database.SqlQuery<Employee>("Exec FullSearch @name , @address , @phone , @orderBy , @order , @items , @page , @totalPages OUTPUT", sqlParameters).ToList();
+            List<Employee> employees = context.Database.SqlQuery<Employee>("Exec EmployeeFullSearch @name , @address , @phone , @orderBy , @order , @items , @page , @totalPages OUTPUT", sqlParameters).ToList();
             totalPages = (int)outParam.Value;
             return employees;
         }
