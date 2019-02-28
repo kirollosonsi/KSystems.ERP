@@ -32,7 +32,7 @@ textarea {
     margin-bottom: -1px;
 }
 
-.container-fluid {
+nav + div.container-fluid {
     padding-left: 0px;
 }
 
@@ -190,4 +190,10 @@ thead {
 
 .input-validation-error {
     border: 1px solid red;
+}
+
+#closeSide{
+    position:relative;
+    top:-12px;
+    right:-7px;
 }

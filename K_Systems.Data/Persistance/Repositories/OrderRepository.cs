@@ -38,7 +38,7 @@ namespace K_Systems.Data.Persistance.Repositories
                 new SqlParameter("@page",pageInfo.page),
                 outParam
             };
-            List<Order> orders = context.Database.SqlQuery<Order>("Exec EmployeeFullSearch @employeeName , @customerName , @startDate , @endDate, @shipAddress, @orderBy , @order , @items , @page , @totalPages OUTPUT", sqlParameters).ToList();
+            List<Order> orders = context.Database.SqlQuery<Order>("Exec OrderFullSearch @employeeName , @customerName , @startDate , @endDate, @shipAddress, @orderBy , @order , @items , @page , @totalPages OUTPUT", sqlParameters).ToList();
             totalPages = (int)outParam.Value;
             return orders;
         }

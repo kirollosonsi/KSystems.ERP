@@ -2,33 +2,33 @@
 @using K_Systems.Presentation.Web.Helper
 @using K_Systems.Data.Core.Domain
 
-@model EmployeeHomeViewModel
+@model TablePageInfo
 
 
-@Ajax.BodiedActionLink("<span class='glyphicon glyphicon-sort-by-attributes'></span>", "Search","Employees",
+@Ajax.BodiedActionLink("<span class='glyphicon glyphicon-sort-by-attributes'></span>", "Search", ViewData["controller"].ToString(),
        new TablePageInfo{
-           search = Model.pageInfo.search,
-           items = Model.pageInfo.items,
+           search = Model.search,
+           items = Model.items,
            sortBy = ViewData["colName"].ToString(),
            order = "asc",
-           page = Model.pageInfo.page
+           page = Model.page
        }, new AjaxOptions
        {
            HttpMethod = "get",
            InsertionMode = InsertionMode.Replace,
            UpdateTargetId = "main"
-       },new { @class= Model.pageInfo.sortBy == ViewData["colName"].ToString() && Model.pageInfo.order == "asc" ? "" : "text-muted" })
+       },new { @class= Model.sortBy == ViewData["colName"].ToString() && Model.order == "asc" ? "" : "text-muted" })
 
-@Ajax.BodiedActionLink("<span class='glyphicon glyphicon-sort-by-attributes-alt'></span>", "Search","Employees",
+@Ajax.BodiedActionLink("<span class='glyphicon glyphicon-sort-by-attributes-alt'></span>", "Search",ViewData["controller"].ToString(),
        new TablePageInfo{
-           search = Model.pageInfo.search,
-           items = Model.pageInfo.items,
+           search = Model.search,
+           items = Model.items,
            sortBy = ViewData["colName"].ToString(),
            order = "desc",
-           page = Model.pageInfo.page
+           page = Model.page
        }, new AjaxOptions
        {
            HttpMethod = "get",
            InsertionMode = InsertionMode.Replace,
            UpdateTargetId = "main"
-       },new { @class= Model.pageInfo.sortBy == ViewData["colName"].ToString() && Model.pageInfo.order == "desc" ? "" : "text-muted" })
+       },new { @class= Model.sortBy == ViewData["colName"].ToString() && Model.order == "desc" ? "" : "text-muted" })

@@ -1,0 +1,67 @@
+﻿@using K_Systems.Presentation.Web.Models.ViewModel
+@using K_Systems.Presentation.Web.Helper
+@using K_Systems.Data.Core.Domain
+
+@model TablePageInfo
+
+
+<ul class="pagination">
+
+    <li class="@((((int)Model.page) - 1) <= 0 ? "disable": "")">
+        @Ajax.BodiedActionLink("<span aria-hidden='true'>&laquo;</span>", "Search",
+       ViewData["controller"].ToString(),
+               new TablePageInfo{
+                   search = Model.search,
+                   items = Model.items,
+                   sortBy = Model.sortBy,
+                   order = Model.order,
+                   page = (((int)Model.page.Value) - 1)
+               },
+               new AjaxOptions
+               {
+                   HttpMethod = "get",
+                   InsertionMode = InsertionMode.Replace,
+                   UpdateTargetId = "main"
+               },new { aria_label = "Previous" })
+    </li>
+
+    @for (int i = 0; i < (int)ViewData["totalPages"]; i++)
+    {
+        <li class="@((int)Model.page == (i+1)? "active": "")">
+
+            @Ajax.ActionLink((i+1).ToString(), "Search",
+              new {
+                  search = Model.search,
+                  items = Model.items,
+                  sortBy = Model.sortBy,
+                  order = Model.order,
+                  page = (i + 1).ToString()
+              },
+               new AjaxOptions
+               {
+                   HttpMethod = "get",
+                   InsertionMode = InsertionMode.Replace,
+                   UpdateTargetId = "main"
+               })
+        </li>
+    }
+
+    <li class="@((((int)Model.page) + 1) > (int)ViewData["totalPages"] ? "disable": "")">
+        @Ajax.BodiedActionLink("<span aria-hidden='true'>&raquo;</span>", "Search",
+       ViewData["controller"].ToString(),
+               new TablePageInfo
+               {
+                   search = Model.search,
+                   items = Model.items,
+                   sortBy = Model.sortBy,
+                   order = Model.order,
+                   page = (((int)Model.page) + 1)
+               },
+               new AjaxOptions
+               {
+                   HttpMethod = "get",
+                   InsertionMode = InsertionMode.Replace,
+                   UpdateTargetId = "main"
+               },new { aria_label = "Next" })
+    </li>
+</ul>

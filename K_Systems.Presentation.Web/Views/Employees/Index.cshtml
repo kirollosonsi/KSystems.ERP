@@ -42,17 +42,17 @@
             }
         </div>
     </div>
-</div>
-<div class="parent">
-    <ul class="context" id="contextmenu">
-        <li><a href="#">details</a></li>
-        <li><a href="#">update</a></li>
-        <li><a href="#">delete</a></li>
-    </ul>
+    <div class="parent">
+        <ul class="context" id="contextmenu">
+            <li><a href="#">details</a></li>
+            <li><a href="#">update</a></li>
+            <li><a href="#">delete</a></li>
+        </ul>
 
-    <div id="main">
+        <div id="main">
 
-        @Html.Partial("_EmployeesTable", Model)
+            @Html.Partial("_EmployeesTable", Model)
+        </div>
     </div>
 </div>
 
@@ -72,19 +72,6 @@
         </div>
     </div>
 </div>
-
-
-
-@*//context menu*@
-@*<div class="context" id="contextmenu">
-        <div class="list-group">
-            <button type="button" class="list-group-item">Details</button>
-            <button type="button" class="list-group-item">Update</button>
-            <button type="button" class="list-group-item">Delete</button>
-        </div>
-    </div>*@
-
-
 
 <!-- Modal -->
 <div class="modal fade " id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

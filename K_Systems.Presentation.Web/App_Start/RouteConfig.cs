@@ -13,6 +13,7 @@ namespace K_Systems.Presentation.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+
             routes.MapRoute(
                name: "SalesModule",
                url: "sales/{controller}/{action}/{id}",

@@ -28,6 +28,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="#">Link <span class="sr-only">(current)</span></a></li>
                         <li><a href="#">Link</a></li>
+
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
@@ -37,7 +38,7 @@
                                 <li class="divider"></li>
                                 <li><a href="#">Separated link</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#">One more separated link</a></li>
+                                
                             </ul>
                         </li>
                     </ul>
@@ -55,8 +56,13 @@
                         </li>
 
                         <li class='@(User.Identity.IsAuthenticated ? "show":"hidden")'>
-                            @Html.ActionLink("Welcome: " +  @User.Identity.Name, "Manage", "Account")
+                            @Html.ActionLink("Welcome: " + @User.Identity.Name, "Manage", "Account")
                             @*<a href="#">Welcome: @User.Identity.Name</a>*@
+                        </li>
+                        <li>
+                            <a class="btn btn-default pull-right hidden" href="#" id="openSide">
+                                <span class="glyphicon glyphicon-tasks"></span>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -67,6 +73,12 @@
         <div class="row">
             <aside class="col col-lg-2">
                 <div class="well">
+                    <button class="btn btn-danger pull-right " id="closeSide">
+                        <span class="glyphicon glyphicon-remove-circle"></span>
+                    </button>
+
+                    <div class="clearfix"></div>
+
                     @Html.ActionLink("DashBoard", "Index", "DashBoards", null, new { @class = "btn btn-default btn-block text-left" })
 
                     <div class="btn-group btn-flex mg-t-s">
@@ -185,7 +197,7 @@
                             <span class="sr-only">Toggle Dropdown</span>
                         </button>
                         <ul class="dropdown-menu pull-right">
-                           <li> @Html.ActionLink("Summary", "Index", "Courses")</li>
+                            <li> @Html.ActionLink("Summary", "Index", "Courses")</li>
                             <li><a href="#">Add</a></li>
                         </ul>
                     </div>
@@ -227,7 +239,7 @@
                     </div>
                 </div>
             </aside>
-            <main class="col-lg-10">
+            <main class=" col-lg-10">
                 @RenderBody()
             </main>
         </div>
@@ -243,6 +255,26 @@
 
     <script src="~/Scripts/jquery-1.12.4.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            var $openSideBtn = $('#openSide');
+            var $closeSideBtn = $('#closeSide');
+            var $main = $('main');
+
+            $closeSideBtn.on('click', function () {
+                $(this).closest('aside').hide(200);
+                $main.removeClass('col-lg-10').addClass('container-fluid');
+                $openSideBtn.removeClass('hidden');
+            });
+
+            $openSideBtn.on('click', function () {
+                $(this).addClass('hidden');
+                $main.removeClass('container-fluid').addClass('col-lg-10');
+                $closeSideBtn.closest('aside').show(200);
+            });
+
+        }());
+    </script>
     @RenderSection("Scripts", false)
 
 </body>
