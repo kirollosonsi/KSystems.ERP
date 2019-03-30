@@ -32,7 +32,7 @@ namespace K_Systems.Data.Core
         IOrderRepository Orders { get; }
         IOrderDetailRepository OrderDetails { get; }
         UserManager<UserERP> UserManager { get; }
-        IUserStore<UserERP> UserStore { get; }
+        //IUserStore<UserERP> UserStore { get; }
         int SaveChanges();
     }
 }

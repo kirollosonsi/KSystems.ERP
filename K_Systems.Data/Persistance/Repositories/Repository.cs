@@ -11,16 +11,17 @@ namespace K_Systems.Data.Persistance.Repositories
     public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         private readonly DbContext ctx;
+        protected DbContext Ctx => (ERPModel)ctx;
 
         public Repository(DbContext dbContext)
         {
             ctx = dbContext;
         }
 
-        protected DbContext Ctx => (ERPModel)ctx;
 
         public TEntity Add(TEntity entity)
         {
+
             Ctx.Set<TEntity>().Add(entity);
             return entity;
         }

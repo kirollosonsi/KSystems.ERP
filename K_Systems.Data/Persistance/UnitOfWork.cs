@@ -243,8 +243,8 @@ namespace K_Systems.Data.Persistance
             }
         }
 
-        public IUserStore<UserERP> userStore;
-        public IUserStore<UserERP> UserStore
+        private IUserStore<UserERP> userStore;
+        private IUserStore<UserERP> UserStore
         {
             get
             {
