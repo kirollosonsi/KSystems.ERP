@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace K_Systems.Presentation.Web.Controllers
+namespace K_Systems.Presentation.Web.Areas.Sales.Controllers
 {
     public class SalesDashboardsController : Controller
     {

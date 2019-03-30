@@ -223,6 +223,50 @@
     <Content Include="font\context-menu-icons.ttf" />
     <Content Include="font\context-menu-icons.eot" />
     <Content Include="Content\jquery.contextMenu.min.css.map" />
+    <Content Include="Areas\HR\Views\web.config" />
+    <Content Include="Areas\Sales\Views\web.config" />
+    <Content Include="Areas\HR\Views\Shared\DisplayTemplates\Boolean.cshtml" />
+    <Content Include="Areas\HR\Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Areas\HR\Views\Shared\DisplayTemplates\Enum.cshtml" />
+    <Content Include="Areas\HR\Views\Shared\DisplayTemplates\Image.cshtml" />
+    <Content Include="Areas\HR\Views\Shared\EditorTemplates\AutoComplete.cshtml" />
+    <Content Include="Areas\HR\Views\Shared\EditorTemplates\Boolean.cshtml" />
+    <Content Include="Areas\HR\Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Areas\HR\Views\Shared\EditorTemplates\Enum.cshtml" />
+    <Content Include="Areas\HR\Views\Shared\EditorTemplates\Image.cshtml" />
+    <Content Include="Areas\HR\Views\Shared\_CourseDetail.cshtml" />
+    <Content Include="Areas\HR\Views\Shared\_CoursesTable.cshtml" />
+    <Content Include="Areas\HR\Views\Shared\_EmployeeDetail.cshtml" />
+    <Content Include="Areas\HR\Views\Shared\_EmployeesTable.cshtml" />
+    <Content Include="Areas\HR\Views\Shared\_LayoutHome.cshtml" />
+    <Content Include="Areas\HR\Views\Shared\_LayoutHR.cshtml" />
+    <Content Include="Areas\HR\Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Areas\HR\Views\Shared\_LayoutSales.cshtml" />
+    <Content Include="Areas\HR\Views\Shared\_OrderTable.cshtml" />
+    <Content Include="Areas\HR\Views\Shared\_TableFoot.cshtml" />
+    <Content Include="Areas\HR\Views\Shared\_TableHead.cshtml" />
+    <Content Include="Areas\HR\Views\Shared\_TrainingHistoryTable.cshtml" />
+    <Content Include="Areas\Sales\Views\Shared\DisplayTemplates\Boolean.cshtml" />
+    <Content Include="Areas\Sales\Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Areas\Sales\Views\Shared\DisplayTemplates\Enum.cshtml" />
+    <Content Include="Areas\Sales\Views\Shared\DisplayTemplates\Image.cshtml" />
+    <Content Include="Areas\Sales\Views\Shared\EditorTemplates\AutoComplete.cshtml" />
+    <Content Include="Areas\Sales\Views\Shared\EditorTemplates\Boolean.cshtml" />
+    <Content Include="Areas\Sales\Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Areas\Sales\Views\Shared\EditorTemplates\Enum.cshtml" />
+    <Content Include="Areas\Sales\Views\Shared\EditorTemplates\Image.cshtml" />
+    <Content Include="Areas\Sales\Views\Shared\_CourseDetail.cshtml" />
+    <Content Include="Areas\Sales\Views\Shared\_CoursesTable.cshtml" />
+    <Content Include="Areas\Sales\Views\Shared\_EmployeeDetail.cshtml" />
+    <Content Include="Areas\Sales\Views\Shared\_EmployeesTable.cshtml" />
+    <Content Include="Areas\Sales\Views\Shared\_LayoutHome.cshtml" />
+    <Content Include="Areas\Sales\Views\Shared\_LayoutHR.cshtml" />
+    <Content Include="Areas\Sales\Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Areas\Sales\Views\Shared\_LayoutSales.cshtml" />
+    <Content Include="Areas\Sales\Views\Shared\_OrderTable.cshtml" />
+    <Content Include="Areas\Sales\Views\Shared\_TableFoot.cshtml" />
+    <Content Include="Areas\Sales\Views\Shared\_TableHead.cshtml" />
+    <Content Include="Areas\Sales\Views\Shared\_TrainingHistoryTable.cshtml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <Content Include="Scripts\alertify.js" />
     <Content Include="Scripts\alertify.min.js" />
@@ -272,20 +316,22 @@
     <Content Include="Scripts\Upload.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Shared\_LayoutHR.cshtml" />
-    <Content Include="Views\DashBoards\Index.cshtml" />
-    <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Areas\HR\Views\DashBoards\Index.cshtml" />
+    <Content Include="Areas\HR\Views\Employees\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="Areas\HR\HRAreaRegistration.cs" />
+    <Compile Include="Areas\Sales\SalesAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CoursesController.cs" />
-    <Compile Include="Controllers\DashBoardsController.cs" />
-    <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Areas\HR\Controllers\CoursesController.cs" />
+    <Compile Include="Areas\HR\Controllers\DashBoardsController.cs" />
+    <Compile Include="Areas\HR\Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\OrdersController.cs" />
-    <Compile Include="Controllers\SalesDashboardsController.cs" />
-    <Compile Include="Controllers\TrainingHistoriesController.cs" />
+    <Compile Include="Areas\Sales\Controllers\OrdersController.cs" />
+    <Compile Include="Areas\Sales\Controllers\SalesDashboardsController.cs" />
+    <Compile Include="Areas\HR\Controllers\TrainingHistoriesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -309,7 +355,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_EmployeesTable.cshtml" />
-    <Content Include="Views\Employees\Add.cshtml" />
+    <Content Include="Areas\HR\Views\Employees\Add.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Enum.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Enum.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
@@ -318,24 +364,24 @@
     <Content Include="Views\Shared\EditorTemplates\Boolean.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Boolean.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Image.cshtml" />
-    <Content Include="Views\Employees\Edit.cshtml" />
-    <Content Include="Views\Employees\Detail.cshtml" />
+    <Content Include="Areas\HR\Views\Employees\Edit.cshtml" />
+    <Content Include="Areas\HR\Views\Employees\Detail.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Image.cshtml" />
     <Content Include="Views\Shared\_EmployeeDetail.cshtml" />
-    <Content Include="Views\Courses\Index.cshtml" />
+    <Content Include="Areas\HR\Views\Courses\Index.cshtml" />
     <Content Include="Views\Shared\_CoursesTable.cshtml" />
-    <Content Include="Views\Courses\Add.cshtml" />
-    <Content Include="Views\Courses\Edit.cshtml" />
-    <Content Include="Views\Courses\Detail.cshtml" />
+    <Content Include="Areas\HR\Views\Courses\Add.cshtml" />
+    <Content Include="Areas\HR\Views\Courses\Edit.cshtml" />
+    <Content Include="Areas\HR\Views\Courses\Detail.cshtml" />
     <Content Include="Views\Shared\_CourseDetail.cshtml" />
-    <Content Include="Views\TrainingHistories\Index.cshtml" />
+    <Content Include="Areas\HR\Views\TrainingHistories\Index.cshtml" />
     <Content Include="Views\Shared\_TrainingHistoryTable.cshtml" />
-    <Content Include="Views\TrainingHistories\Add.cshtml" />
+    <Content Include="Areas\HR\Views\TrainingHistories\Add.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\AutoComplete.cshtml" />
     <Content Include="Views\Shared\_LayoutSales.cshtml" />
-    <Content Include="Views\SalesDashboards\Index.cshtml" />
-    <Content Include="Views\Orders\Index.cshtml" />
-    <Content Include="Views\Orders\Add.cshtml" />
+    <Content Include="Areas\Sales\Views\SalesDashboards\Index.cshtml" />
+    <Content Include="Areas\Sales\Views\Orders\Index.cshtml" />
+    <Content Include="Areas\Sales\Views\Orders\Add.cshtml" />
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
@@ -352,6 +398,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\HR\Models\" />
+    <Folder Include="Areas\Sales\Models\" />
     <Folder Include="uploads\images\" />
   </ItemGroup>
   <ItemGroup>

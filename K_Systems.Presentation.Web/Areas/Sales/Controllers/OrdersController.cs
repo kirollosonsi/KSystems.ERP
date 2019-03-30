@@ -9,7 +9,7 @@ using K_Systems.Data.Core.Repositories;
 using K_Systems.Data.Core;
 using K_Systems.Presentation.Web.Models.ViewModel;
 
-namespace K_Systems.Presentation.Web.Controllers
+namespace K_Systems.Presentation.Web.Areas.Sales.Controllers
 {
     public class OrdersController : Controller
     {

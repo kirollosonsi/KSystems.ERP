@@ -9,7 +9,7 @@ using K_Systems.Data.Persistance;
 using K_Systems.Presentation.Web.Models.ViewModel;
 using System.Net;
 
-namespace K_Systems.Presentation.Web.Controllers
+namespace K_Systems.Presentation.Web.Areas.HR.Controllers
 {
     public class CoursesController : Controller
     {

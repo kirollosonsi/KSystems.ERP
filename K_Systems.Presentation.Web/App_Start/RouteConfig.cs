@@ -13,24 +13,24 @@ namespace K_Systems.Presentation.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-
-            routes.MapRoute(
-               name: "SalesModule",
-               url: "sales/{controller}/{action}/{id}",
-               defaults: new { controller = "SalesDashboards", action = "Index", id = UrlParameter.Optional }
-            );
-
-            routes.MapRoute(
-               name: "HRModule",
-               url: "hr/{controller}/{action}/{id}",
-               defaults: new { controller = "DashBoards", action = "Index", id = UrlParameter.Optional }
-            );
-
             routes.MapRoute(
                 name: "Home",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            //routes.MapRoute(
+            //   name: "SalesModule",
+            //   url: "sales/{controller}/{action}/{id}",
+            //   defaults: new { controller = "SalesDashboards", action = "Index", id = UrlParameter.Optional }
+            //);
+
+            //routes.MapRoute(
+            //   name: "HRModule",
+            //   url: "hr/{controller}/{action}/{id}",
+            //   defaults: new { controller = "DashBoards", action = "Index", id = UrlParameter.Optional }
+            //);
+
 
         }
     }

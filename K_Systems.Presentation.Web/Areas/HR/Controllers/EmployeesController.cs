@@ -13,7 +13,7 @@ using System.Net;
 using System.Security.Claims;
 using Microsoft.AspNet.Identity;
 
-namespace K_Systems.Presentation.Web.Controllers
+namespace K_Systems.Presentation.Web.Areas.HR.Controllers
 {
     public class EmployeesController : Controller
     {

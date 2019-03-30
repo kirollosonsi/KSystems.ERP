@@ -1,0 +1,53 @@
+﻿@using K_Systems.Presentation.Web.Models.ViewModel
+@using K_Systems.Presentation.Web.Helper
+@using K_Systems.Data.Core.Domain
+
+@model OrderHomeViewModel
+
+<input type="hidden" name="order" id="inputOrder" value='@(Model.pageInfo.order )' />
+<input type="hidden" name="sortBy" id="inputSortBy" value='@(Model.pageInfo.sortBy )' />
+
+<table class="table table-hover table-striped text-center mg-t-s" data-selected="false" id="dataTable">
+    <thead>
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(or => or.order.orderDate)
+                @Html.Partial("_TableHead", Model.pageInfo,new ViewDataDictionary { { "colName", nameof(Model.order.ID)},{"controller","Orders" } })
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(or => or.order.Employee.fName)
+                @Html.Partial("_TableHead", Model.pageInfo, new ViewDataDictionary { { "colName", nameof(Model.order.employeeID) }, { "controller", "Orders" } })
+            </th>
+            <th class="text-center" data-sortBy="lName">
+                @Html.DisplayNameFor(or => or.order.Customer.name)
+                @Html.Partial("_TableHead", Model.pageInfo, new ViewDataDictionary { { "colName", nameof(Model.order.customerID) }, { "controller", "Orders" } })
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(or => or.order.shipAddress)
+                @Html.Partial("_TableHead", Model.pageInfo, new ViewDataDictionary { { "colName", nameof(Model.order.shipAddress) }, { "controller", "Orders" } })
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (Order order in Model.orders)
+        {
+            <tr data-id="@order.ID">
+                <td>@Html.DisplayFor(e => order.orderDate)</td>
+                <td>@Html.DisplayFor(e => order.Employee.fName)</td>
+                <td>@Html.DisplayFor(e => order.Customer.name)</td>
+                <td>@Html.DisplayFor(e => order.shipAddress)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<div class="col-lg-8 col-lg-offset-4" id="pagingRemovable">
+    <nav aria-label="Page navigation">
+        @Html.Partial("_TableFoot", Model.pageInfo,
+       new ViewDataDictionary { { "controller", "Orders" }, { "totalPages", Model.totalPages } })
+    </nav>
+</div>
+
+

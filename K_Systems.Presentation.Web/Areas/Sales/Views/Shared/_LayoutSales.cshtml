@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    @RenderSection("Styles", false)
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                @Html.ActionLink("K-SYSTEMS ERP", "Index", "Home", null, new { @Class = "navbar-brand" })
+
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="container">
+                <div class="collapse navbar-collapse container" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">Link</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class='@(User.Identity.IsAuthenticated ? "hidden":"show")'>
+                            @Html.ActionLink("Login", "Login", "Account")
+                        </li>
+
+                        <li class='@(User.Identity.IsAuthenticated ? "hidden":"show")'>
+                            @Html.ActionLink("Register", "Register", "Account")
+                        </li>
+
+                        <li class='@(User.Identity.IsAuthenticated ? "show":"hidden")'>
+                            @Html.ActionLink("Logout", "Logout", "Account")
+                        </li>
+
+                        <li class='@(User.Identity.IsAuthenticated ? "show":"hidden")'>
+                            @Html.ActionLink($"Welcome: {@User.Identity.Name}","Manage","Account")
+                            @*<a href="#">Welcome: @User.Identity.Name</a>*@
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col col-lg-2">
+                <div class="well">
+                    @Html.ActionLink("DashBoard", "Index", "DashBoards", null, new { @class = "btn btn-default btn-block text-left" })
+
+                    <div class="btn-group btn-flex mg-t-s">
+                        @Html.ActionLink("Products", "Index", "Employees", null, new { @class = "btn btn-default" })
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu pull-right">
+                            <li>@Html.ActionLink("Add", "Add", "Employees")</li>
+                            <li>@Html.ActionLink("Summary", "Index", "Employees")</li>
+                        </ul>
+                    </div>
+
+                    <div class="btn-group btn-flex mg-t-s">
+                        @Html.ActionLink("Suppliers", "Index", "Employees", null, new { @class = "btn btn-default" })
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="#">Summary</a></li>
+                            <li><a href="#">Add</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="btn-group btn-flex mg-t-s">
+                        @Html.ActionLink("Categories", "Index", "Employees", null, new { @class = "btn btn-default" })
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="#">Summary</a></li>
+                            <li><a href="#">Add</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="btn-group btn-flex mg-t-s">
+                        @Html.ActionLink("Customers", "Index", "Employees", null, new { @class = "btn btn-default" })
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="#">Summary</a></li>
+                            <li><a href="#">Add</a></li>
+                        </ul>
+                    </div>
+
+
+                    <div class="btn-group btn-flex mg-t-s">
+                        @Html.ActionLink("Orders", "Index", "Orders", null, new { @class = "btn btn-default" })
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="#">Summary</a></li>
+                            <li><a href="#">Add</a></li>
+                        </ul>
+                    </div>
+
+                  
+                </div>
+            </aside>
+            <main class="col-lg-10">
+                @RenderBody()
+            </main>
+        </div>
+
+    </div>
+
+
+
+
+    <footer>
+        <p>&copy; K-Systems @DateTime.Now.Year</p>
+    </footer>
+
+    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("Scripts", false)
+
+</body>
+
+
+</html>

@@ -1,0 +1,62 @@
+﻿@using K_Systems.Presentation.Web.Models.ViewModel
+@using K_Systems.Presentation.Web.Helper
+@using K_Systems.Data.Core.Domain
+
+@model EmployeeHomeViewModel
+
+<input type="hidden" name="order" id="inputOrder" value='@(Model.pageInfo.order )' />
+<input type="hidden" name="sortBy" id="inputSortBy" value='@(Model.pageInfo.sortBy )' />
+
+<table class="table table-hover table-striped text-center mg-t-s" data-selected="false" id="dataTable">
+    <thead>
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(emps => emps.employee.ID)
+                @Html.Partial("_TableHead", Model.pageInfo, new ViewDataDictionary { { "colName", nameof(Model.employee.ID) }, { "controller", "Employees" } })
+            </th>.
+            <th class="text-center">
+                @Html.DisplayNameFor(emps => emps.employee.fName)
+                @Html.Partial("_TableHead", Model.pageInfo, new ViewDataDictionary { { "colName", nameof(Model.employee.fName) }, { "controller", "Employees" } })
+            </th>
+            <th class="text-center" data-sortBy="lName">
+                @Html.DisplayNameFor(emps => emps.employee.lName)
+                @Html.Partial("_TableHead", Model.pageInfo, new ViewDataDictionary { { "colName", nameof(Model.employee.lName) }, { "controller", "Employees" } })
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(emps => emps.employee.phone)
+                @Html.Partial("_TableHead", Model.pageInfo, new ViewDataDictionary { { "colName", nameof(Model.employee.phone) }, { "controller", "Employees" } })
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(emps => emps.employee.email)
+                @Html.Partial("_TableHead", Model.pageInfo, new ViewDataDictionary { { "colName", nameof(Model.employee.email) }, { "controller", "Employees" } })
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (Employee employee in Model.employees)
+        {
+            <tr data-id="@employee.ID">
+                <td>@Html.DisplayFor(e => employee.ID)</td>
+                <td>@Html.DisplayFor(e => employee.fName)</td>
+                <td>@Html.DisplayFor(e => employee.lName)</td>
+                <td>@Html.DisplayFor(e => employee.phone)</td>
+                <td>@Html.DisplayFor(e => employee.email)</td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+
+<div class="col-lg-8 col-lg-offset-4" id="pagingRemovable">
+    <nav aria-label="Page navigation">
+        @Html.Partial("_TableFoot", Model.pageInfo,
+       new ViewDataDictionary { { "controller", "Employees" }, { "totalPages", Model.totalPages } })
+
+    </nav>
+</div>
+
+
+
+

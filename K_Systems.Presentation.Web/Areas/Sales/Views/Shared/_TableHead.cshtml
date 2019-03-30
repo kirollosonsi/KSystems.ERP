@@ -1,0 +1,34 @@
+﻿@using K_Systems.Presentation.Web.Models.ViewModel
+@using K_Systems.Presentation.Web.Helper
+@using K_Systems.Data.Core.Domain
+
+@model TablePageInfo
+
+
+@Ajax.BodiedActionLink("<span class='glyphicon glyphicon-sort-by-attributes'></span>", "Search", ViewData["controller"].ToString(),
+       new TablePageInfo{
+           search = Model.search,
+           items = Model.items,
+           sortBy = ViewData["colName"].ToString(),
+           order = "asc",
+           page = Model.page
+       }, new AjaxOptions
+       {
+           HttpMethod = "get",
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = "main"
+       },new { @class= Model.sortBy == ViewData["colName"].ToString() && Model.order == "asc" ? "" : "text-muted" })
+
+@Ajax.BodiedActionLink("<span class='glyphicon glyphicon-sort-by-attributes-alt'></span>", "Search",ViewData["controller"].ToString(),
+       new TablePageInfo{
+           search = Model.search,
+           items = Model.items,
+           sortBy = ViewData["colName"].ToString(),
+           order = "desc",
+           page = Model.page
+       }, new AjaxOptions
+       {
+           HttpMethod = "get",
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = "main"
+       },new { @class= Model.sortBy == ViewData["colName"].ToString() && Model.order == "desc" ? "" : "text-muted" })

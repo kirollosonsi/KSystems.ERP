@@ -147,7 +147,7 @@
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6 animate-box">
                         @*@Html.ActionLink("","Index", "DashBoards", null, new { @class= "" })*@
-                        <a class="fh5co-card" href="@Url.Action("Index", "DashBoards", new { Area="HR"},null)">
+                        <a class="fh5co-card" href="@Url.Action("Index","DashBoards")">
                             <img src="~/Content/images/hr.jpg" alt="HR Module" class="img-responsive">
                             <div class="fh5co-card-body">
                                 <h3>HR</h3>
@@ -156,7 +156,7 @@
                         </a>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-6 animate-box">
-                        <a class="fh5co-card" href="@Url.Action("Index","SalesDashboards", new { Area="Sales"},null)">
+                        <a class="fh5co-card" href="@Url.Action("Index","SalesDashboards")">
                             <img src="~/Content/images/inventory.jpg" alt="Inventory Module" class="img-responsive">
                             <div class="fh5co-card-body">
                                 <h3>Sales</h3>
