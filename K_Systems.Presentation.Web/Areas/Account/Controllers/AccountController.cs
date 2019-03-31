@@ -12,7 +12,7 @@ using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
 
-namespace K_Systems.Presentation.Web.Controllers
+namespace K_Systems.Presentation.Web.Areas.Account.Controllers
 {
     public class AccountController : Controller
     {

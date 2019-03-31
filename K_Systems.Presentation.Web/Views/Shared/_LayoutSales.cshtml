@@ -13,8 +13,11 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                @Html.ActionLink("K-SYSTEMS ERP", "Index", "Home", null, new { @Class = "navbar-brand" })
-
+                @Html.ActionLink("K-SYSTEMS ERP",
+                           "Index",
+                           "Home",
+                           new { area ="" },
+                           new { @Class = "navbar-brand" })
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -43,19 +46,19 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class='@(User.Identity.IsAuthenticated ? "hidden":"show")'>
-                            @Html.ActionLink("Login", "Login", "Account")
+                            @Html.ActionLink("Login", "Login", "Account", new { area = "Account" }, null)
                         </li>
 
                         <li class='@(User.Identity.IsAuthenticated ? "hidden":"show")'>
-                            @Html.ActionLink("Register", "Register", "Account")
+                            @Html.ActionLink("Register", "Register", "Account", new { area = "Account" }, null)
                         </li>
 
                         <li class='@(User.Identity.IsAuthenticated ? "show":"hidden")'>
-                            @Html.ActionLink("Logout", "Logout", "Account")
+                            @Html.ActionLink("Logout", "Logout", "Account", new { area = "Account" }, null)
                         </li>
 
                         <li class='@(User.Identity.IsAuthenticated ? "show":"hidden")'>
-                            @Html.ActionLink($"Welcome: {@User.Identity.Name}","Manage","Account")
+                            @Html.ActionLink($"Welcome: {@User.Identity.Name}", "Manage", "Account", new { area = "Account" }, null)
                             @*<a href="#">Welcome: @User.Identity.Name</a>*@
                         </li>
                     </ul>
@@ -67,10 +70,12 @@
         <div class="row">
             <aside class="col col-lg-2">
                 <div class="well">
-                    @Html.ActionLink("DashBoard", "Index", "DashBoards", null, new { @class = "btn btn-default btn-block text-left" })
+                    @Html.ActionLink("DashBoard", "Index", "DashBoards", new { area = "Sales" },
+                   new { @class = "btn btn-default btn-block text-left" })
 
                     <div class="btn-group btn-flex mg-t-s">
-                        @Html.ActionLink("Products", "Index", "Employees", null, new { @class = "btn btn-default" })
+                        @Html.ActionLink("Products", "Index", "Products", new { area = "Sales" },
+                       new { @class = "btn btn-default" })
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="caret"></span>
                             <span class="sr-only">Toggle Dropdown</span>
@@ -82,7 +87,8 @@
                     </div>
 
                     <div class="btn-group btn-flex mg-t-s">
-                        @Html.ActionLink("Suppliers", "Index", "Employees", null, new { @class = "btn btn-default" })
+                        @Html.ActionLink("Suppliers", "Index", "Suppliers", new { area = "Sales" },
+                       new { @class = "btn btn-default" })
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="caret"></span>
                             <span class="sr-only">Toggle Dropdown</span>
@@ -94,7 +100,8 @@
                     </div>
 
                     <div class="btn-group btn-flex mg-t-s">
-                        @Html.ActionLink("Categories", "Index", "Employees", null, new { @class = "btn btn-default" })
+                        @Html.ActionLink("Categories", "Index", "Categories", new { area = "Sales" },
+                       new { @class = "btn btn-default" })
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="caret"></span>
                             <span class="sr-only">Toggle Dropdown</span>
@@ -106,7 +113,8 @@
                     </div>
 
                     <div class="btn-group btn-flex mg-t-s">
-                        @Html.ActionLink("Customers", "Index", "Employees", null, new { @class = "btn btn-default" })
+                        @Html.ActionLink("Customers", "Index", "Customers", new { area="Sales"}
+                   , new { @class = "btn btn-default" })
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="caret"></span>
                             <span class="sr-only">Toggle Dropdown</span>
@@ -130,7 +138,7 @@
                         </ul>
                     </div>
 
-                  
+
                 </div>
             </aside>
             <main class="col-lg-10">

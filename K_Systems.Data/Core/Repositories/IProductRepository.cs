@@ -10,5 +10,6 @@ namespace K_Systems.Data.Core.Repositories
     public interface IProductRepository : IRepository<Product>
     {
         object GetNames(string term);
+        IEnumerable<Product> GetAllWithCatSup();
     }
 }

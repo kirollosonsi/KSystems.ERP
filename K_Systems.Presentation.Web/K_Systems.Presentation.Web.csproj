@@ -267,6 +267,27 @@
     <Content Include="Areas\Sales\Views\Shared\_TableFoot.cshtml" />
     <Content Include="Areas\Sales\Views\Shared\_TableHead.cshtml" />
     <Content Include="Areas\Sales\Views\Shared\_TrainingHistoryTable.cshtml" />
+    <Content Include="Areas\Account\Views\web.config" />
+    <Content Include="Areas\Sales\Views\Customers\Create.cshtml" />
+    <Content Include="Areas\Sales\Views\Customers\Delete.cshtml" />
+    <Content Include="Areas\Sales\Views\Customers\Details.cshtml" />
+    <Content Include="Areas\Sales\Views\Customers\Edit.cshtml" />
+    <Content Include="Areas\Sales\Views\Customers\Index.cshtml" />
+    <Content Include="Areas\Sales\Views\Categories\Create.cshtml" />
+    <Content Include="Areas\Sales\Views\Categories\Delete.cshtml" />
+    <Content Include="Areas\Sales\Views\Categories\Details.cshtml" />
+    <Content Include="Areas\Sales\Views\Categories\Edit.cshtml" />
+    <Content Include="Areas\Sales\Views\Categories\Index.cshtml" />
+    <Content Include="Areas\Sales\Views\Suppliers\Create.cshtml" />
+    <Content Include="Areas\Sales\Views\Suppliers\Delete.cshtml" />
+    <Content Include="Areas\Sales\Views\Suppliers\Details.cshtml" />
+    <Content Include="Areas\Sales\Views\Suppliers\Edit.cshtml" />
+    <Content Include="Areas\Sales\Views\Suppliers\Index.cshtml" />
+    <Content Include="Areas\Sales\Views\Products\Create.cshtml" />
+    <Content Include="Areas\Sales\Views\Products\Delete.cshtml" />
+    <Content Include="Areas\Sales\Views\Products\Details.cshtml" />
+    <Content Include="Areas\Sales\Views\Products\Edit.cshtml" />
+    <Content Include="Areas\Sales\Views\Products\Index.cshtml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <Content Include="Scripts\alertify.js" />
     <Content Include="Scripts\alertify.min.js" />
@@ -322,9 +343,14 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
+    <Compile Include="Areas\Account\AccountAreaRegistration.cs" />
     <Compile Include="Areas\HR\HRAreaRegistration.cs" />
+    <Compile Include="Areas\Sales\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\Sales\Controllers\CustomersController.cs" />
+    <Compile Include="Areas\Sales\Controllers\ProductsController.cs" />
+    <Compile Include="Areas\Sales\Controllers\SuppliersController.cs" />
     <Compile Include="Areas\Sales\SalesAreaRegistration.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Areas\Account\Controllers\AccountController.cs" />
     <Compile Include="Areas\HR\Controllers\CoursesController.cs" />
     <Compile Include="Areas\HR\Controllers\DashBoardsController.cs" />
     <Compile Include="Areas\HR\Controllers\EmployeesController.cs" />
@@ -383,9 +409,9 @@
     <Content Include="Areas\Sales\Views\Orders\Index.cshtml" />
     <Content Include="Areas\Sales\Views\Orders\Add.cshtml" />
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Areas\Account\Views\Account\Login.cshtml" />
+    <Content Include="Areas\Account\Views\Account\Register.cshtml" />
+    <Content Include="Areas\Account\Views\Account\Manage.cshtml" />
     <Content Include="Views\Shared\_TableHead.cshtml" />
     <Content Include="Views\Shared\_OrderTable.cshtml" />
     <Content Include="Views\Shared\_TableFoot.cshtml" />
@@ -398,6 +424,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Account\Models\" />
+    <Folder Include="Areas\Account\Views\Shared\" />
     <Folder Include="Areas\HR\Models\" />
     <Folder Include="Areas\Sales\Models\" />
     <Folder Include="uploads\images\" />
